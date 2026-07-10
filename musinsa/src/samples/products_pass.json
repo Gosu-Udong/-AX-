@@ -1,0 +1,11 @@
+{
+  "_comment": "전부 정상인 카탈로그. exit 0 데모용. --lab samples/lab_results.csv 와 함께 실행.",
+  "products": [
+    {"sku": "MU-1001", "name": "[우븐로우] 베이직 옥스포드 셔츠",
+     "category": "default",
+     "parts": {"겉감": {"면": 60, "폴리에스터": 40}}},
+    {"sku": "MU-1006", "name": "[노르딕폴라] 프리미엄 덕다운 패딩",
+     "category": "padded_outer",
+     "parts": {"겉감": {"폴리에스터": 100}, "충전재": {"솜털": 90, "깃털": 10}}}
+  ]
+}

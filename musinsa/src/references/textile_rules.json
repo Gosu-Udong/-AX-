@@ -1,0 +1,58 @@
+{
+  "meta": {
+    "title": "섬유제품 혼용률·충전재 표시 검증 규칙",
+    "description": "부위별 혼용률 합계, 기타섬유 상한, 충전재 표시-시험성적서 대조, 필수 부위 규칙의 근거 데이터",
+    "version": "1.0.0",
+    "sources": [
+      {"label": "섬유제품의 품질표시에 관한 규정(국가기술표준원 고시) — 혼용률 표시방법·혼용순서", "url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=42610"},
+      {"label": "국가기술표준원(KATS) 섬유제품분야 상품별 품질표시기준", "url": "https://www.kats.go.kr/content.do?cmsid=553"},
+      {"label": "무신사 다운·캐시미어 7,968개 전수조사(8.5% 오기재, 5~35일 판매중지) 뉴스룸", "url": "https://newsroom.musinsa.com/newsroom-menu/2025-0325"},
+      {"label": "무신사 전수조사 보도(SBS Biz)", "url": "https://biz.sbs.co.kr/article/20000224713"},
+      {"label": "노스페이스 패딩 충전재 13스타일·28SKU 오기재(환불 안내+판매대행사 벌점) 뉴스룸", "url": "https://newsroom.musinsa.com/newsroom-menu/2025-1202-2"}
+    ]
+  },
+  "rules": {
+    "mix_sum": {
+      "id": "MIX_SUM_100",
+      "target_pct": 100,
+      "tolerance_pp": 0,
+      "description": "각 부위(겉감/안감/충전재 등)의 혼용률 합계는 100%여야 한다.",
+      "law": "섬유제품의 품질표시에 관한 규정(혼용률 표시방법)",
+      "law_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=42610"
+    },
+    "etc_fiber_cap": {
+      "id": "ETC_FIBER_MAX_15",
+      "max_total_pct": 15,
+      "labels": ["기타섬유", "기타 섬유", "기타"],
+      "description": "'기타섬유'로 뭉뚱그려 표기하는 섬유의 합계는 15% 이하로만 허용된다(전기생활용품안전법 안전기준에 따른 무신사 개선 기준).",
+      "law": "전기생활용품안전법 안전기준(섬유제품 표시) / 무신사 표시 개선 기준",
+      "law_url": "https://newsroom.musinsa.com/newsroom-menu/2025-1202-2"
+    },
+    "filling_lab_match": {
+      "id": "FILLING_LAB_MATCH",
+      "part_labels": ["충전재", "충전"],
+      "component_tolerance_pp": 5,
+      "down_claim_terms": ["솜털", "깃털", "다운", "구스", "덕", "거위털", "오리털"],
+      "description": "충전재(솜털/깃털) 표시값은 시험성적서 측정값과 부위별 성분마다 5%p 이내여야 하며, 성적서 미제출 SKU는 별도 표시한다.",
+      "law": "표시·광고의 공정화에 관한 법률(허위·과장광고 금지) / 무신사 안전거래정책",
+      "law_url": "https://newsroom.musinsa.com/newsroom-menu/2025-0325"
+    },
+    "required_parts": {
+      "id": "REQUIRED_PARTS",
+      "by_category": {
+        "padded_outer": ["겉감", "충전재"],
+        "default": ["겉감"]
+      },
+      "description": "카테고리별 필수 부위가 누락되면 위반이다(패딩류는 겉감+충전재 필수).",
+      "law": "섬유제품 품질표시기준(부위별 표시 의무)",
+      "law_url": "https://www.kats.go.kr/content.do?cmsid=553"
+    },
+    "descending_order": {
+      "id": "MIX_DESCENDING",
+      "severity": "warning",
+      "description": "혼용률은 함유량이 많은 섬유부터 내림차순으로 표기하는 것이 원칙이다(경고, 판정에는 불포함).",
+      "law": "섬유제품의 품질표시에 관한 규정(혼용순서)",
+      "law_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=42610"
+    }
+  }
+}

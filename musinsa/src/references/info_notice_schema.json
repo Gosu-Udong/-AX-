@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "title": "전자상거래 상품정보제공고시 필수항목 스키마",
+    "description": "「전자상거래 등에서의 상품 등의 정보제공에 관한 고시」 별표의 품목별 필수 표기항목을 코드화한 데이터",
+    "version": "1.0.0",
+    "sources": [
+      {"label": "전자상거래 등에서의 상품 등의 정보제공에 관한 고시(공정거래위원회 고시)", "url": "https://www.law.go.kr/LSW/admRulInfoP.do?admRulSeq=2100000065929"},
+      {"label": "공정거래위원회 전자상거래 소비자보호", "url": "https://www.ftc.go.kr/www/contents.do?key=703"},
+      {"label": "무신사 입점 브랜드 정보고시·표시의무 위반 조치 공지(2024-12-16) 뉴스룸", "url": "https://newsroom.musinsa.com/newsroom-menu/2024-1216-musinsa"}
+    ]
+  },
+  "detail_ref_phrases": ["상세페이지 참조", "상세페이지참조", "상품상세 참조", "상품상세참조", "상세 참조", "상세정보 참조", "상세설명 참조", "별도 표기", "별도표기", "하단 참조", "이미지 참조"],
+  "categories": {
+    "의류": {
+      "label": "의류",
+      "required_fields": [
+        {"key": "제품소재", "label": "제품 소재(섬유의 조성 또는 함류율)", "allow_detail_ref": false},
+        {"key": "색상", "label": "색상", "allow_detail_ref": false},
+        {"key": "치수", "label": "치수", "allow_detail_ref": true},
+        {"key": "제조자", "label": "제조자(수입자)", "allow_detail_ref": false},
+        {"key": "제조국", "label": "제조국", "allow_detail_ref": false},
+        {"key": "세탁방법", "label": "세탁방법 및 취급 시 주의사항", "allow_detail_ref": false},
+        {"key": "제조연월", "label": "제조연월", "allow_detail_ref": false},
+        {"key": "품질보증기준", "label": "품질보증기준", "allow_detail_ref": false},
+        {"key": "AS책임자", "label": "A/S 책임자와 전화번호", "allow_detail_ref": false}
+      ]
+    },
+    "화장품": {
+      "label": "화장품",
+      "required_fields": [
+        {"key": "용량", "label": "내용물의 용량 또는 중량", "allow_detail_ref": false},
+        {"key": "제품주요사양", "label": "제품 주요 사양(피부타입 등)", "allow_detail_ref": true},
+        {"key": "사용기한", "label": "사용기한 또는 개봉 후 사용기간", "allow_detail_ref": false},
+        {"key": "사용방법", "label": "사용방법", "allow_detail_ref": true},
+        {"key": "제조자", "label": "화장품제조업자 및 책임판매업자", "allow_detail_ref": false},
+        {"key": "제조국", "label": "제조국", "allow_detail_ref": false},
+        {"key": "전성분", "label": "화장품법에 따른 모든 성분", "allow_detail_ref": false},
+        {"key": "기능성여부", "label": "기능성화장품 심사·보고 여부", "allow_detail_ref": false},
+        {"key": "주의사항", "label": "사용할 때의 주의사항", "allow_detail_ref": false},
+        {"key": "품질보증기준", "label": "품질보증기준", "allow_detail_ref": false},
+        {"key": "소비자상담", "label": "소비자상담 관련 전화번호", "allow_detail_ref": false}
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
-  "name": "musinsa-ax-plugin",
-  "version": "0.1.0",
-  "description": "TBD — 무신사(패션·뷰티 커머스) 공개 검증 가능 문제 해결 Codex 플러그인 (리서치 후 확정)",
+  "name": "musinsa-listing-guard",
+  "version": "1.0.0",
+  "description": "무신사 상품 리스팅의 섬유 혼용률·정보고시·화장품 표시광고 법정 표시 위반을 결정론적으로 검출하는 컴플라이언스 스위트",
   "skills": "./skills/"
 }
