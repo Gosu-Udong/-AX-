@@ -1,0 +1,6 @@
+{
+  "name": "myrealtrip-ax-plugin",
+  "version": "0.1.0",
+  "description": "TBD — 마이리얼트립(여행자 문제 해결) 공개 검증 가능 문제 해결 Codex 플러그인 (리서치 후 확정)",
+  "skills": "./skills/"
+}
