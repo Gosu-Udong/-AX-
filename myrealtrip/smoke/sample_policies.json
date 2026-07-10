@@ -1,0 +1,16 @@
+{
+  "products": [
+    {"id": "TR-01", "name": "파리 근교 당일투어 (정상)",
+     "cancellation_policy": [
+       {"days_before": 30, "penalty_pct": 0},
+       {"days_before": 10, "penalty_pct": 15},
+       {"days_before": 1, "penalty_pct": 30}
+     ]},
+    {"id": "TR-02", "name": "스위스 4일 패키지 (상한 초과)",
+     "cancellation_policy": [
+       {"days_before": 25, "penalty_pct": 30},
+       {"days_before": 10, "penalty_pct": 50},
+       {"days_before": 0, "penalty_pct": 100}
+     ]}
+  ]
+}
