@@ -1,0 +1,72 @@
+{
+  "_comment": "위반 혼합 사례 — 4개 다크패턴 유형을 각각 재현(가상 상품). 한국소비자원 2024.03 지적 유형 포함.",
+  "listings": [
+    {
+      "id": "TKT-200",
+      "name": "가상 테마파크 입장권 (대표가=아동가)",
+      "display_price": 48000,
+      "display_price_label": "최저가",
+      "options": [
+        {"label": "성인", "price": 62000},
+        {"label": "아동", "price": 48000}
+      ],
+      "required_fees": [],
+      "urgency": {"type": "none"},
+      "addons": []
+    },
+    {
+      "id": "TKT-210",
+      "name": "가상 스노클링 투어 (숨겨진 필수 수수료)",
+      "display_price": 49000,
+      "display_price_label": "1인",
+      "options": [
+        {"label": "1인", "price": 49000}
+      ],
+      "required_fees": [
+        {"label": "장비 필수 대여료", "amount": 20000},
+        {"label": "현지 시설이용료", "amount": 15000}
+      ],
+      "urgency": {"type": "none"},
+      "addons": []
+    },
+    {
+      "id": "TKT-220",
+      "name": "가상 야경 크루즈 (상시 마감임박)",
+      "display_price": 35000,
+      "display_price_label": "성인",
+      "options": [
+        {"label": "성인", "price": 35000}
+      ],
+      "required_fees": [],
+      "urgency": {"type": "deadline", "always_on": true, "text": "마감임박! 오늘 예약 시 확정"},
+      "addons": []
+    },
+    {
+      "id": "TKT-230",
+      "name": "가상 공항 픽업 포함 투어 (유료옵션 사전선택)",
+      "display_price": 80000,
+      "display_price_label": "성인",
+      "options": [
+        {"label": "성인", "price": 80000}
+      ],
+      "required_fees": [],
+      "urgency": {"type": "none"},
+      "addons": [
+        {"label": "여행자보험", "price": 12000, "default_selected": true}
+      ]
+    },
+    {
+      "id": "TKT-240",
+      "name": "가상 대표가 오인 입장권 (대표가 < 모든 옵션)",
+      "display_price": 30000,
+      "display_price_label": "특가",
+      "options": [
+        {"label": "성인", "price": 62000},
+        {"label": "아동", "price": 52000}
+      ],
+      "required_fees": [],
+      "urgency": {"type": "none"},
+      "addons": []
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "_comment": "위반 혼합 사례 — 상한 초과 구간 포함(가상 상품). 항공권은 N/A로 처리되어 거짓양성 방지를 보여준다.",
+  "products": [
+    {
+      "id": "OVS-200",
+      "name": "가상 로마 4일 패키지 (상한 초과)",
+      "category": "overseas_package",
+      "cancellation_policy": [
+        {"days_before": 25, "penalty_pct": 30},
+        {"days_before": 10, "penalty_pct": 50},
+        {"days_before": 0,  "penalty_pct": 100}
+      ]
+    },
+    {
+      "id": "DOM-210",
+      "name": "가상 부산 2일 국내여행 (상한 초과)",
+      "category": "domestic_package",
+      "cancellation_policy": [
+        {"days_before": 3, "penalty_pct": 20},
+        {"days_before": 1, "penalty_pct": 50}
+      ]
+    },
+    {
+      "id": "ACC-220",
+      "name": "가상 경주 호텔 1박 (당일 위약금 과다)",
+      "category": "accommodation",
+      "cancellation_policy": [
+        {"days_before": 1, "penalty_pct": 30},
+        {"days_before": 0, "penalty_pct": 80}
+      ]
+    },
+    {
+      "id": "AIR-230",
+      "name": "가상 인천-파리 왕복 항공권 (항공사 운임규정 우선)",
+      "category": "air_ticket",
+      "cancellation_policy": [
+        {"days_before": 20, "penalty_pct": 60},
+        {"days_before": 0,  "penalty_pct": 100}
+      ]
+    },
+    {
+      "id": "OVS-240",
+      "name": "가상 방콕 3일 패키지 (정상 대조군)",
+      "category": "overseas_package",
+      "cancellation_policy": [
+        {"days_before": 30, "penalty_pct": 0},
+        {"days_before": 8,  "penalty_pct": 20}
+      ]
+    }
+  ]
+}

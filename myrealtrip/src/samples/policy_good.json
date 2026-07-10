@@ -1,0 +1,46 @@
+{
+  "_comment": "정상 사례 — 소비자분쟁해결기준 상한을 지키는 가상 상품들. (실존 파트너 아님)",
+  "products": [
+    {
+      "id": "OVS-100",
+      "name": "가상 발리 5일 자유패키지",
+      "category": "overseas_package",
+      "cancellation_policy": [
+        {"days_before": 35, "penalty_pct": 0},
+        {"days_before": 20, "penalty_pct": 10},
+        {"days_before": 10, "penalty_pct": 15},
+        {"days_before": 1,  "penalty_pct": 30},
+        {"days_before": 0,  "penalty_pct": 50}
+      ]
+    },
+    {
+      "id": "DOM-110",
+      "name": "가상 강원 2일 국내여행",
+      "category": "domestic_package",
+      "cancellation_policy": [
+        {"days_before": 3, "penalty_pct": 0},
+        {"days_before": 2, "penalty_pct": 10},
+        {"days_before": 0, "penalty_pct": 30}
+      ]
+    },
+    {
+      "id": "ACC-120",
+      "name": "가상 제주 리조트 1박 (비수기 주중)",
+      "category": "accommodation",
+      "cancellation_policy": [
+        {"days_before": 2, "penalty_pct": 0},
+        {"days_before": 1, "penalty_pct": 10},
+        {"days_before": 0, "penalty_pct": 20}
+      ]
+    },
+    {
+      "id": "AIR-130",
+      "name": "가상 인천-도쿄 왕복 항공권",
+      "category": "air_ticket",
+      "cancellation_policy": [
+        {"days_before": 5, "penalty_pct": 40},
+        {"days_before": 0, "penalty_pct": 100}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "title": "여행상품 가격표시 다크패턴 유형 매핑 (공정위·한국소비자원 기준)",
+    "version": "2025-07 스냅샷",
+    "sources": [
+      {
+        "name": "공정거래위원회 온라인 다크패턴 규제 (전자상거래법 개정 시행 2024)",
+        "url": "https://news.seoul.go.kr/economy/archives/566114"
+      },
+      {
+        "name": "한국소비자원 — 여행 플랫폼 해외 테마파크 입장권 가격표시 다크패턴 개선 (2024.03)",
+        "url": "https://www.khan.co.kr/article/202403121354001"
+      },
+      {
+        "name": "전자상거래 등에서의 상품 등의 정보제공에 관한 고시",
+        "url": "https://www.law.go.kr/행정규칙/전자상거래등에서의상품등의정보제공에관한고시"
+      }
+    ],
+    "note": "한국소비자원은 2024.03 조사에서 마이리얼트립·트리플·인터파크투어의 해외 테마파크 입장권 상품 일부(44개 중 16개, 36.4%)가 대표가격을 아동가/밀쿠폰가로 표시한 '숨겨진 정보' 다크패턴이라고 지적했고, 마이리얼트립은 2023.12 개선을 완료했다. 본 룰은 해당 유형을 상시 릴리스 게이트로 자동 검출하기 위한 것이다."
+  },
+  "patterns": {
+    "misleading_reference_price": {
+      "ko": "대표가격 오인 표시",
+      "ftc_type": "눈속임 설계 / 숨겨진 정보 (대표가를 실제 구매 불가한 최저가·아동가·쿠폰가로 표기)",
+      "severity": "HIGH",
+      "source_url": "https://www.khan.co.kr/article/202403121354001",
+      "desc": "리스팅 대표가격이 실제 판매되는 모든 옵션가보다 낮거나, 성인 표준가가 아닌 아동가/쿠폰가와 동일해 소비자가 표시가로 구매할 수 없는 경우.",
+      "remedy": "대표가격을 실제 표준 판매가(성인가 등)로 표기하고, 아동·쿠폰가는 별도 라벨로 구분한다."
+    },
+    "drip_pricing": {
+      "ko": "순차공개 가격책정 (숨겨진 필수 수수료)",
+      "ftc_type": "순차공개 가격책정 (drip pricing)",
+      "severity": "HIGH",
+      "source_url": "https://news.seoul.go.kr/economy/archives/566114",
+      "desc": "대표가격에 포함되지 않은 '필수' 수수료가 결제 단계에서 순차 공개되어 최종 결제가가 대표가보다 크게 상승.",
+      "remedy": "필수 수수료를 대표가격에 포함(총액 표시)하거나 최소한 대표가와 동일 지면에 합산 총액을 명시한다."
+    },
+    "false_urgency": {
+      "ko": "거짓 긴급성",
+      "ftc_type": "거짓 긴급성 (false urgency)",
+      "severity": "MEDIUM",
+      "source_url": "https://news.seoul.go.kr/economy/archives/566114",
+      "desc": "실제 재고·마감과 무관하게 상시 '마감임박/재고임박'을 표시해 구매를 압박(always_on=true).",
+      "remedy": "실제 재고·마감 데이터에 연동된 경우에만 긴급성 배지를 노출한다."
+    },
+    "option_preselection": {
+      "ko": "특정옵션 사전선택",
+      "ftc_type": "특정옵션 사전선택 (preselection)",
+      "severity": "MEDIUM",
+      "source_url": "https://news.seoul.go.kr/economy/archives/566114",
+      "desc": "유료 부가상품·옵션이 소비자 동의 없이 기본 선택되어 최종가에 자동 포함(default_selected=true).",
+      "remedy": "유료 부가옵션의 기본 선택을 해제하고 소비자가 명시적으로 선택하게 한다."
+    }
+  }
+}

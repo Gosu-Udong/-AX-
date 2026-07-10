@@ -1,6 +1,17 @@
 {
-  "name": "kakaopaysec-ax-plugin",
-  "version": "0.1.0",
-  "description": "TBD — 카카오페이증권(금융 규제 준수·정확성) 공개 검증 가능 문제 해결 Codex 플러그인 (리서치 후 확정)",
+  "name": "kakaopaysec-compliance-guard",
+  "version": "1.0.0",
+  "description": "카카오페이증권 금융 컴플라이언스 스위트 — 광고 문구(금소법 §22)·AI 답변 단정표현/근거(자본시장법 §49)·개인정보(PII) 노출을 릴리스 전 결정론적으로 린트한다.",
+  "author": {
+    "name": "AX 인재전쟁 참가팀"
+  },
+  "keywords": [
+    "compliance",
+    "fintech",
+    "korea",
+    "advertising-law",
+    "pii",
+    "grounding"
+  ],
   "skills": "./skills/"
 }

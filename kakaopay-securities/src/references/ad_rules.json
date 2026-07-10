@@ -1,0 +1,103 @@
+{
+  "meta": {
+    "skill": "ad-compliance-lint",
+    "primary_law": "금융소비자보호에 관한 법률 제22조(광고 관련 준수사항)",
+    "note": "금소법 §22 계열(광고 규제) 위반 시 과태료 최대 1억원. 손실보전·이익보장 '약정'의 형사처벌(3년 이하 징역/1억원 이하 벌금)은 별건인 자본시장법 §55·§445 소관이므로 조문 귀속을 분리한다.",
+    "sources": [
+      "금융소비자보호에 관한 법률 제22조: https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0",
+      "금융투자협회 광고 관련 규정(표시요건): https://law.kofia.or.kr/service/law/lawFullScreenContent.do?seq=284&historySeq=779",
+      "금융투자협회 불법광고 신고 안내: https://www.kofia.or.kr/wpge/m_169/sub04070103.do",
+      "금융위원회 금융광고 소비자피해 방지 보도자료: https://www.fsc.go.kr/no010101/76045",
+      "금융위·금감원 금소법 §22 위반 판단 사례: https://casenote.kr/금융위원회·금융감독원/be1d9afa68"
+    ]
+  },
+  "investment_ad_triggers": [
+    "수익률", "수익", "투자", "펀드", "주식", "ETF", "배당", "예수금", "적립식",
+    "자동매매", "수익률\\s*모으기", "계좌\\s*개설", "리워드", "연\\s*\\d+\\s*%", "무료\\s*주식"
+  ],
+  "banned_expressions": [
+    {
+      "id": "AD-B01",
+      "pattern": "원금\\s*(?:100\\s*%?\\s*)?보장",
+      "category": "손실보전 오인",
+      "law": "금소법 §22②(손실보전·이익보장 오인 소지 표현 금지)",
+      "source_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0",
+      "message": "원금 보장은 투자성 상품에서 손실보전으로 오인시키는 금지 표현"
+    },
+    {
+      "id": "AD-B02",
+      "pattern": "확정\\s*수익(?:률)?",
+      "category": "이익보장 오인",
+      "law": "금소법 §22②(이익보장 오인 소지 표현 금지)",
+      "source_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0",
+      "message": "확정 수익은 미래 수익을 보장하는 것으로 오인시키는 금지 표현"
+    },
+    {
+      "id": "AD-B03",
+      "pattern": "손실\\s*(?:이|은)?\\s*없(?:이|는|다|습니다|음)|무손실",
+      "category": "손실보전 오인",
+      "law": "금소법 §22②(손실 위험 은폐 금지)",
+      "source_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0",
+      "message": "손실 없음 표현은 투자위험을 은폐하는 오인 표현"
+    },
+    {
+      "id": "AD-B04",
+      "pattern": "무조건",
+      "category": "단정·오인",
+      "law": "금소법 §22②(오인 소지 표현 금지)",
+      "source_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0",
+      "message": "'무조건'은 조건·위험을 은폐하는 단정적 오인 표현"
+    },
+    {
+      "id": "AD-B05",
+      "pattern": "(?:최고|최대)\\s*수익률|수익률\\s*1\\s*위|업계\\s*1\\s*위|국내\\s*최초|1\\s*등",
+      "category": "객관적 근거 없는 최상급·배타적 표현",
+      "law": "금투협 광고규정(객관적 근거 없는 배타성·최상급 표현 제한)",
+      "source_url": "https://law.kofia.or.kr/service/law/lawFullScreenContent.do?seq=284&historySeq=779",
+      "message": "객관적 근거 표기 없는 최상급·배타적 표현은 협회 광고규정 위반 소지"
+    },
+    {
+      "id": "AD-B06",
+      "pattern": "(?:100\\s*%?\\s*)?(?:절대\\s*)?안전(?:합니다|한|하게|해요)?|절대\\s*손해\\s*없",
+      "category": "안전성 오인",
+      "law": "금소법 §22②(위험 은폐·안전성 오인 금지)",
+      "source_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0",
+      "message": "'절대/100% 안전'은 원금손실 위험을 은폐하는 오인 표현"
+    }
+  ],
+  "required_disclosures": [
+    {
+      "id": "AD-D01",
+      "pattern": "원금\\s*손실|투자\\s*위험|손실이?\\s*발생|원금의?\\s*손실|투자원금",
+      "law": "금소법 §22 및 금투협 광고규정(투자위험 필수 고지)",
+      "source_url": "https://law.kofia.or.kr/service/law/lawFullScreenContent.do?seq=284&historySeq=779",
+      "message": "투자성 광고는 원금손실 가능성 등 투자위험을 반드시 고지해야 함"
+    }
+  ],
+  "display_checklist": [
+    {
+      "id": "AD-C01",
+      "requirement": "과거 운용실적이 미래 수익을 보장하지 않는다는 취지 표시",
+      "trigger_pattern": "수익률|실적|수익\\s*\\d+\\s*%|연\\s*\\d+\\s*%",
+      "present_pattern": "과거.{0,10}실적|미래.{0,10}보장.{0,4}않|과거의?\\s*수익률",
+      "law": "금투협 광고규정(운용실적 표시 시 면책 문구 의무)",
+      "source_url": "https://law.kofia.or.kr/service/law/lawFullScreenContent.do?seq=284&historySeq=779"
+    },
+    {
+      "id": "AD-C02",
+      "requirement": "준법감시인 사전승인·금융투자협회 심사필 표기",
+      "trigger_pattern": ".",
+      "present_pattern": "심사필|준법감시인|심의필|협회\\s*심사",
+      "law": "금투협 광고규정(광고 집행 전 준법감시인 승인+협회 사전심의 '심사필' 표기 의무)",
+      "source_url": "https://law.kofia.or.kr/service/law/lawFullScreenContent.do?seq=284&historySeq=779"
+    },
+    {
+      "id": "AD-C03",
+      "requirement": "수수료 등 비용 안내",
+      "trigger_pattern": "수익률|투자|펀드|매매|거래",
+      "present_pattern": "수수료|비용|보수",
+      "law": "금소법 §22 및 금투협 광고규정(비용 안내)",
+      "source_url": "https://www.law.go.kr/LSW/lsInfoP.do?lsId=013704&ancYnChk=0"
+    }
+  ]
+}

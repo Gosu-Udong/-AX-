@@ -1,6 +1,16 @@
 {
-  "name": "myrealtrip-ax-plugin",
-  "version": "0.1.0",
-  "description": "TBD — 마이리얼트립(여행자 문제 해결) 공개 검증 가능 문제 해결 Codex 플러그인 (리서치 후 확정)",
+  "name": "myrealtrip-traveler-guard",
+  "version": "1.0.0",
+  "description": "여행상품 취소·환불 약관과 가격표시 다크패턴을 릴리스 전에 결정론적으로 검사하는 소비자보호 린트 스위트",
+  "author": {
+    "name": "AX 인재전쟁 마이리얼트립 팀"
+  },
+  "keywords": [
+    "travel",
+    "consumer-protection",
+    "refund-policy",
+    "dark-pattern",
+    "compliance-lint"
+  ],
   "skills": "./skills/"
 }

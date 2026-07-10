@@ -1,0 +1,63 @@
+{
+  "meta": {
+    "skill": "pii-guard",
+    "primary_law": "개인정보 보호법·신용정보의 이용 및 보호에 관한 법률(고유식별정보 암호화·마스킹·국외이전 동의 의무)",
+    "note": "주민등록번호 등 고유식별정보는 암호화·마스킹 의무. 로그/화면 평문 노출, 제3자·국외 전송은 대형 제재로 직결(카카오페이 알리페이 국외이전 제재 사례).",
+    "sources": [
+      "금융분야 가명·익명처리 안내서(고유식별정보 암호화·비식별): https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=74483&fileTy=ATTACH&fileNo=4",
+      "카카오페이 4,045만명 신용정보 국외이전 제재: https://www.newswhoplus.com/news/articleView.html?idxno=53738",
+      "카카오페이 고객정보 무단제공 사건 타임라인: https://namu.wiki/w/카카오페이 고객정보 무단제공 사건"
+    ]
+  },
+  "patterns": [
+    {
+      "id": "PII-RRN",
+      "type": "주민등록번호",
+      "pattern": "\\b\\d{6}[-\\s]?[1-4]\\d{6}\\b",
+      "luhn": false,
+      "law": "개인정보 보호법 §24의2(주민등록번호 처리 제한)·§24(고유식별정보 암호화)",
+      "source_url": "https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=74483&fileTy=ATTACH&fileNo=4"
+    },
+    {
+      "id": "PII-CARD",
+      "type": "카드번호",
+      "pattern": "\\b\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}[-\\s]?\\d{4}\\b",
+      "luhn": true,
+      "law": "신용정보법·여신전문금융업법(카드정보 보호)",
+      "source_url": "https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=74483&fileTy=ATTACH&fileNo=4"
+    },
+    {
+      "id": "PII-PHONE",
+      "type": "휴대전화번호",
+      "pattern": "\\b01[016789][-\\s]?\\d{3,4}[-\\s]?\\d{4}\\b",
+      "luhn": false,
+      "law": "개인정보 보호법(개인정보 마스킹)",
+      "source_url": "https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=74483&fileTy=ATTACH&fileNo=4"
+    },
+    {
+      "id": "PII-ACCT",
+      "type": "계좌번호",
+      "pattern": "\\b\\d{2,4}[-]\\d{2,6}[-]\\d{2,7}\\b",
+      "min_digits": 10,
+      "luhn": false,
+      "law": "신용정보법(금융거래정보 보호)",
+      "source_url": "https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=74483&fileTy=ATTACH&fileNo=4"
+    },
+    {
+      "id": "PII-EMAIL",
+      "type": "이메일",
+      "pattern": "\\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}\\b",
+      "luhn": false,
+      "law": "개인정보 보호법(개인정보)",
+      "source_url": "https://www.fsc.go.kr/comm/getFile?srvcId=BBSTY1&upperNo=74483&fileTy=ATTACH&fileNo=4"
+    }
+  ],
+  "masking_chars": ["*", "x", "X", "•", "●", "○"],
+  "sinks": [
+    {"id": "LOG", "pattern": "\\b(?:log(?:ger|ging)?|console\\.(?:log|info|debug|warn|error)|print|println|System\\.out|logging\\.(?:info|debug|warning|error)|fmt\\.Print)\\b", "kind": "로그 노출", "severity": "high"},
+    {"id": "NET", "pattern": "\\b(?:requests\\.(?:post|get|put)|urlopen|urllib|fetch|axios|http\\.(?:post|get)|httpx|okhttp|HttpClient|curl)\\b", "kind": "네트워크 전송", "severity": "high"}
+  ],
+  "third_party_hosts": [
+    {"pattern": "alipay|antgroup|ant\\.com|overseas|foreign|external|third[-_]?party|3rd[-_]?party|\\.cn\\b|\\.com\\.cn", "kind": "제3자·국외 전송 소지", "severity": "critical"}
+  ]
+}

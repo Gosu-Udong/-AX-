@@ -1,0 +1,32 @@
+{
+  "_comment": "정상 사례 — 대표가=성인 표준가, 필수 수수료 없음, 긴급성 미표시, 유료옵션 미선택. (가상 상품)",
+  "listings": [
+    {
+      "id": "TKT-100",
+      "name": "가상 테마파크 원데이 입장권",
+      "display_price": 62000,
+      "display_price_label": "성인 표준가",
+      "options": [
+        {"label": "성인", "price": 62000},
+        {"label": "아동", "price": 52000}
+      ],
+      "required_fees": [],
+      "urgency": {"type": "none"},
+      "addons": [
+        {"label": "우선입장 패스", "price": 15000, "default_selected": false}
+      ]
+    },
+    {
+      "id": "TKT-101",
+      "name": "가상 시티투어 버스 1일권",
+      "display_price": 25000,
+      "display_price_label": "성인",
+      "options": [
+        {"label": "성인", "price": 25000}
+      ],
+      "required_fees": [],
+      "urgency": {"type": "stock", "always_on": false, "text": "잔여 3석"},
+      "addons": []
+    }
+  ]
+}

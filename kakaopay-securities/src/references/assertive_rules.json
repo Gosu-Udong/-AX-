@@ -1,0 +1,67 @@
+{
+  "meta": {
+    "skill": "assertive-claims-check",
+    "primary_law": "자본시장과 금융투자업에 관한 법률 제49조(부당권유의 금지)",
+    "note": "§49 제2호: 불확실한 사항에 대하여 단정적 판단을 제공하거나 확실하다고 오인하게 할 소지가 있는 내용을 알리는 행위 금지. 근거(grounding) 검증은 금소법 설명의무·금융분야 AI 가이드라인(정확성·근거)에 대응.",
+    "sources": [
+      "자본시장과 금융투자업에 관한 법률 제49조: https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "§49 조문·증권사 부당권유 제재 사례: https://casenote.kr/법령/자본시장과_금융투자업에_관한_법률/제49조",
+      "금융위원회 금융분야 AI 가이드라인 보도자료: https://www.fsc.go.kr/no010101/85908",
+      "금융분야 AI 가이드라인(KDI 요약): https://eiec.kdi.re.kr/policy/domesticView.do?ac=0000159143"
+    ]
+  },
+  "assertive_expressions": [
+    {
+      "id": "AC-A01",
+      "pattern": "무조건",
+      "law": "자본시장법 §49(2) 단정적 판단 제공",
+      "source_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "message": "'무조건'은 불확실한 사항을 단정하는 부당권유 소지 표현"
+    },
+    {
+      "id": "AC-A02",
+      "pattern": "반드시\\s*(?:수익|이익|오르|상승|올라|벌)",
+      "law": "자본시장법 §49(2) 단정적 판단 제공",
+      "source_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "message": "수익·상승을 '반드시'로 단정하는 부당권유 소지 표현"
+    },
+    {
+      "id": "AC-A03",
+      "pattern": "확실(?:히|한|하게|합니다|해요|해)",
+      "law": "자본시장법 §49(2) 확실하다고 오인하게 할 소지",
+      "source_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "message": "'확실히' 등은 투자 결과가 확실하다고 오인시키는 표현"
+    },
+    {
+      "id": "AC-A04",
+      "pattern": "원금\\s*(?:100\\s*%?\\s*)?보장|손실\\s*(?:은|이)?\\s*없(?:다|습니다|어요|음)|무손실",
+      "law": "자본시장법 §49(2) 및 손실보전 오인",
+      "source_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "message": "원금 보장·손실 없음은 위험을 은폐하는 단정 표현"
+    },
+    {
+      "id": "AC-A05",
+      "pattern": "100\\s*%\\s*(?:수익|안전|보장|예금자보호)|절대\\s*(?:안전|손해\\s*없)",
+      "law": "자본시장법 §49(2) 확실성 오인",
+      "source_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "message": "100%·절대 표현은 투자 결과의 확실성을 단정하는 표현"
+    },
+    {
+      "id": "AC-A06",
+      "pattern": "지금\\s*(?:안\\s*사면|사야|바로\\s*사)|이번\\s*기회\\s*(?:놓치|아니)",
+      "law": "자본시장법 §49(1) 투자자 판단을 흐리는 권유",
+      "source_url": "https://www.law.go.kr/lsInfoP.do?lsiSeq=105908",
+      "message": "구매를 압박하는 단정적 권유 표현"
+    }
+  ],
+  "grounding": {
+    "default_threshold": 0.5,
+    "token_prefix_min_len": 3,
+    "stopwords": [
+      "이", "그", "저", "것", "수", "등", "및", "의", "가", "은", "는", "을", "를",
+      "에", "에서", "으로", "로", "고", "도", "만", "요", "네", "죠", "임", "함",
+      "합니다", "됩니다", "입니다", "있습니다", "그리고", "하지만", "또한", "때"
+    ],
+    "note": "임베딩·외부 API 미사용. 표준 라이브러리 토큰 겹침(접두 매칭 포함)으로 응답 문장이 로컬 지식베이스에 근거하는지 결정론적으로 판정한다."
+  }
+}
